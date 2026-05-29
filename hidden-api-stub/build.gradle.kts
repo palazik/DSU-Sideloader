@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "vegabobo.dsusideloader"
+    namespace = "com.palaziks.sideloader"
     compileSdk = 33
 
     defaultConfig {

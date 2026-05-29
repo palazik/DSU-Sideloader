@@ -18,5 +18,5 @@ dependencyResolutionManagement {
         maven { setUrl("https://jitpack.io") }
     }
 }
-rootProject.name = "DSU Helper"
+rootProject.name = "palazikSideloader"
 include(":app", ":hidden-api-stub", ":magisk-module")

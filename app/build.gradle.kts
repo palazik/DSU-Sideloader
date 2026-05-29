@@ -20,7 +20,7 @@ android {
     val packageName: String by rootProject.extra
 
     namespace = packageName
-    compileSdk = 33
+    compileSdk = 35
 
     defaultConfig {
         this.applicationId = packageName
@@ -28,7 +28,7 @@ android {
         this.versionName = versionName
 
         minSdk = 29
-        targetSdk = 33
+        targetSdk = 35
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -39,18 +39,8 @@ android {
         val releaseSigningConfig = getReleaseSigningConfig()
         if (releaseSigningConfig.exists()) {
             create("release") {
-                /**
-                 * .sign/dsu_sideloader.prop
-                 *
-                 * keystore=some/path/keystore.jks
-                 * keystore_pw=keystore_password
-                 * alias=alias
-                 * alias_pw=alias_password
-                 *
-                 */
                 val props = Properties()
                 props.load(releaseSigningConfig.inputStream())
-
                 storeFile = File(props.getProperty("keystore"))
                 storePassword = props.getProperty("keystore_pw")
                 keyAlias = props.getProperty("alias")
@@ -98,7 +88,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.6"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     packaging {
         resources {
@@ -108,7 +98,6 @@ android {
 }
 
 aboutLibraries {
-    // Remove the "generated" timestamp to allow for reproducible builds
     excludeFields = arrayOf("generated")
 }
 
@@ -123,10 +112,7 @@ dependencies {
     implementation(AndroidX.activity.compose)
     implementation(AndroidX.lifecycle.viewModelCompose)
     implementation(AndroidX.navigation.compose)
-    implementation(AndroidX.compose.material3)
-    implementation(AndroidX.compose.material)
     implementation(AndroidX.compose.runtime.liveData)
-    implementation(AndroidX.compose.material.icons.extended)
     implementation(AndroidX.compose.ui.toolingPreview)
     implementation(AndroidX.compose.ui)
 
@@ -135,11 +121,14 @@ dependencies {
     implementation(AndroidX.preference.ktx)
     implementation(AndroidX.lifecycle.runtime.ktx)
 
+    // Miuix UI - replaces Material3
+    implementation("top.yukonga.miuix.kmp:miuix-ui-android:0.9.1")
+    implementation("top.yukonga.miuix.kmp:miuix-icons-android:0.9.1")
+
     implementation(Google.dagger.hilt.android)
     implementation(AndroidX.hilt.navigationCompose)
     kapt(Google.dagger.hilt.compiler)
 
-    implementation(Google.android.material)
     implementation(KotlinX.serialization.json)
 
     implementation("com.github.topjohnwu.libsu:core:_")
