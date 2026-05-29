@@ -1,4 +1,4 @@
-name: Android CI
+name: Build Android CI
 
 on:
   push:
@@ -23,11 +23,20 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
       
-    - name: Build with Gradle
+    - name: Build MiniDebug APK
       run: ./gradlew assembleMiniDebug
+
+    - name: Build Release APKs (unsigned)
+      run: ./gradlew assembleRelease
       
-    - name: Archive artifacts
+    - name: Upload MiniDebug APK
       uses: actions/upload-artifact@v3
       with:
         name: outputs-apk-minidebug
         path: app/build/outputs/apk/miniDebug
+
+    - name: Upload Release APK
+      uses: actions/upload-artifact@v3
+      with:
+        name: outputs-apk-release
+        path: app/build/outputs/apk/release
