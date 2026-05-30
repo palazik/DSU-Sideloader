@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.palaziks.sideloader"
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         minSdk = 29

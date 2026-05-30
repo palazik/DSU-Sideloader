@@ -7,7 +7,8 @@ fun getReleaseSigningConfig(): File {
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    id("kotlin-kapt")
+    id("org.jetbrains.kotlin.plugin.compose")
+    id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
     id("com.mikepenz.aboutlibraries.plugin")
     id("kotlinx-serialization")
@@ -20,7 +21,7 @@ android {
     val packageName: String by rootProject.extra
 
     namespace = packageName
-    compileSdk = 35
+    compileSdk = 37
 
     defaultConfig {
         this.applicationId = packageName
@@ -28,7 +29,7 @@ android {
         this.versionName = versionName
 
         minSdk = 29
-        targetSdk = 35
+        targetSdk = 37
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
             useSupportLibrary = true
@@ -87,9 +88,6 @@ android {
         buildConfig = true
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -127,7 +125,7 @@ dependencies {
 
     implementation(Google.dagger.hilt.android)
     implementation(AndroidX.hilt.navigationCompose)
-    kapt(Google.dagger.hilt.compiler)
+    ksp(Google.dagger.hilt.compiler)
 
     implementation(KotlinX.serialization.json)
 
