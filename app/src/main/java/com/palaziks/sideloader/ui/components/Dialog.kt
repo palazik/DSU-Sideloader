@@ -1,6 +1,5 @@
 package com.palaziks.sideloader.ui.components
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,14 +8,10 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.palaziks.sideloader.ui.components.buttons.PrimaryButton
 import com.palaziks.sideloader.ui.components.buttons.SecondaryButton
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.overlay.OverlayDialog
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import top.yukonga.miuix.kmp.window.WindowDialog
 
 @Composable
 fun Dialog(
@@ -30,7 +25,7 @@ fun Dialog(
     onClickCancel: () -> Unit = {},
     content: @Composable () -> Unit = {},
 ) {
-    OverlayDialog(
+    WindowDialog(
         show = true,
         modifier = modifier,
         title = title,
@@ -40,21 +35,13 @@ fun Dialog(
         content()
         Row(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
             if (cancelText.isNotEmpty()) {
-                SecondaryButton(
-                    text = cancelText,
-                    onClick = onClickCancel,
-                    modifier = Modifier.weight(1f),
-                )
+                SecondaryButton(text = cancelText, onClick = onClickCancel, modifier = Modifier.weight(1f))
             }
             if (cancelText.isNotEmpty() && confirmText.isNotEmpty()) {
                 Spacer(modifier = Modifier.width(12.dp))
             }
             if (confirmText.isNotEmpty()) {
-                PrimaryButton(
-                    text = confirmText,
-                    onClick = onClickConfirm,
-                    modifier = Modifier.weight(1f),
-                )
+                PrimaryButton(text = confirmText, onClick = onClickConfirm, modifier = Modifier.weight(1f))
             }
         }
     }

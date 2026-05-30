@@ -28,7 +28,7 @@ fun DialogItem(
             modifier = Modifier
                 .size(32.dp)
                 .padding(end = 6.dp),
-            tint = MiuixTheme.colorScheme.onSurfaceVariant,
+            tint = MiuixTheme.colorScheme.onSurfaceVariantSummary,
             imageVector = icon,
             contentDescription = "Icon",
         )
@@ -47,3 +47,4 @@ fun DialogItem(
         }
     }
 }
+

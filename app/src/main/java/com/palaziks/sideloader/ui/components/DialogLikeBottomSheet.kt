@@ -1,6 +1,5 @@
 package com.palaziks.sideloader.ui.components
 
-import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,8 +15,8 @@ import androidx.compose.ui.unit.dp
 import com.palaziks.sideloader.ui.components.buttons.PrimaryButton
 import com.palaziks.sideloader.ui.components.buttons.SecondaryButton
 import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.overlay.OverlayBottomSheet
 import top.yukonga.miuix.kmp.theme.MiuixTheme
+import top.yukonga.miuix.kmp.window.WindowBottomSheet
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -39,7 +38,7 @@ fun DialogLikeBottomSheet(
         LocalFocusManager.current.clearFocus()
     }
 
-    OverlayBottomSheet(
+    WindowBottomSheet(
         show = true,
         title = title,
         onDismissRequest = onDismiss,
