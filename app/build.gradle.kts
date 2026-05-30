@@ -7,10 +7,10 @@ fun getReleaseSigningConfig(): File {
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("com.mikepenz.aboutlibraries.plugin")
-    id("kotlinx-serialization")
     id("org.jmailen.kotlinter")
 }
 
@@ -75,12 +75,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
-    }
-    kotlinOptions {
-        jvmTarget = "21"
-    }
-    kotlin {
-        jvmToolchain(21)
     }
     buildFeatures {
         aidl = true
