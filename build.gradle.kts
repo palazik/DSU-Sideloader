@@ -23,6 +23,6 @@ val versionCode by extra { 8 }
 val versionName by extra { "2.03" }
 val packageName by extra { "com.palaziks.sideloader" }
 
-task("clean") {
-    delete(project.buildDir)
+tasks.register("clean", Delete::class) {
+    delete(layout.buildDirectory)
 }
