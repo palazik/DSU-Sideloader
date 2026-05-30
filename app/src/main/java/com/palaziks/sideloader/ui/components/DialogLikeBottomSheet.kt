@@ -32,7 +32,7 @@ fun DialogLikeBottomSheet(
     onClickConfirm: () -> Unit = {},
     onClickCancel: () -> Unit = {},
     onDismiss: () -> Unit = onClickCancel,
-    content: @Composable ColumnScope.() -> Unit = {},
+    content: @Composable () -> Unit = {},
 ) {
     if (hideKeyboard) {
         LocalSoftwareKeyboardController.current?.hide()
@@ -56,15 +56,9 @@ fun DialogLikeBottomSheet(
         content()
         Row(modifier = Modifier.padding(top = 16.dp)) {
             Spacer(modifier = Modifier.weight(1F))
-            SecondaryButton(
-                text = cancelText,
-                onClick = onClickCancel,
-            )
+            SecondaryButton(text = cancelText, onClick = onClickCancel)
             Spacer(modifier = Modifier.padding(4.dp))
-            PrimaryButton(
-                text = confirmText,
-                onClick = onClickConfirm,
-            )
+            PrimaryButton(text = confirmText, onClick = onClickConfirm)
         }
     }
 }

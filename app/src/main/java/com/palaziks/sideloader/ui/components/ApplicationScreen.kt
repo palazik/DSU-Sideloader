@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
 import top.yukonga.miuix.kmp.basic.Scaffold
+import top.yukonga.miuix.kmp.basic.ScrollBehavior
 import top.yukonga.miuix.kmp.basic.Surface
 import top.yukonga.miuix.kmp.basic.rememberTopAppBarState
 
@@ -22,18 +23,16 @@ fun ApplicationScreen(
     verticalArrangement: Arrangement.HorizontalOrVertical = Arrangement.spacedBy(0.dp),
     columnContent: Boolean = true,
     enableDefaultScrollBehavior: Boolean = true,
-    topBar: @Composable (MiuixScrollBehavior) -> Unit = {},
+    topBar: @Composable (ScrollBehavior) -> Unit = {},
     bottomBar: @Composable () -> Unit = {},
     outsideContent: @Composable (PaddingValues) -> Unit = {},
     content: @Composable () -> Unit = {},
 ) {
     val scrollBehavior = MiuixScrollBehavior(rememberTopAppBarState())
 
-    val scrollBehaviorModifier = Modifier.fillMaxSize()
-
     Surface {
         Scaffold(
-            modifier = scrollBehaviorModifier,
+            modifier = Modifier.fillMaxSize(),
             topBar = { topBar(scrollBehavior) },
             bottomBar = { bottomBar() },
             content = { innerPadding ->

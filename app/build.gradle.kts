@@ -115,6 +115,7 @@ dependencies {
     // Miuix UI - replaces Material3
     implementation("top.yukonga.miuix.kmp:miuix-ui-android:0.9.1")
     implementation("top.yukonga.miuix.kmp:miuix-icons-android:0.9.1")
+    implementation(AndroidX.compose.material.icons.extended)
 
     implementation(Google.dagger.hilt.android)
     implementation(AndroidX.hilt.navigationCompose)

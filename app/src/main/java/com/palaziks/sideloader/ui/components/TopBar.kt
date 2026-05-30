@@ -4,14 +4,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.vector.ImageVector
 import top.yukonga.miuix.kmp.basic.Icon
 import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
+import top.yukonga.miuix.kmp.basic.ScrollBehavior
 import top.yukonga.miuix.kmp.basic.TopAppBar
 import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.icons.useful.Back
+import top.yukonga.miuix.kmp.icon.extended.Back
 
 @Composable
 fun TopBar(
-    scrollBehavior: MiuixScrollBehavior? = null,
+    scrollBehavior: ScrollBehavior? = null,
     barTitle: String,
     icon: ImageVector? = null,
     iconContentDescription: String? = "icon",
@@ -25,7 +25,7 @@ fun TopBar(
             if (onClickBackButton != null) {
                 IconButton(onClick = onClickBackButton) {
                     Icon(
-                        imageVector = MiuixIcons.Useful.Back,
+                        imageVector = MiuixIcons.Back,
                         contentDescription = "Back",
                     )
                 }
