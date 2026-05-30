@@ -6,7 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose") apply false
 
     id("com.google.devtools.ksp") apply false
-    id("dagger.hilt.android.plugin") apply false
+    id("com.google.dagger.hilt.android") apply false
 
     id("com.mikepenz.aboutlibraries.plugin") apply false
     id("org.jmailen.kotlinter") apply false
