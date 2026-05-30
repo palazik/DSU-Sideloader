@@ -138,11 +138,9 @@ dependencies {
     compileOnly(project(":hidden-api-stub"))
 }
 
-tasks {
-    "preBuild" {
-        dependsOn(lintKotlin)
-    }
-    "lintKotlin" {
-        dependsOn(formatKotlin)
-    }
+tasks.named("preBuild") {
+    dependsOn("lintKotlin")
+}
+tasks.named("lintKotlin") {
+    dependsOn("formatKotlin")
 }
