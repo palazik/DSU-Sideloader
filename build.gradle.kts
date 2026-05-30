@@ -1,11 +1,3 @@
-buildscript {
-    repositories { mavenCentral() }
-    dependencies {
-        classpath(Google.dagger.hilt.android.gradlePlugin)
-        classpath("org.jetbrains.kotlin:kotlin-serialization:_")
-    }
-}
-
 plugins {
     id("com.android.application") apply false
     id("com.android.library") apply false
@@ -14,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose") apply false
 
     id("com.google.devtools.ksp") apply false
+    id("dagger.hilt.android.plugin") apply false
 
     id("com.mikepenz.aboutlibraries.plugin") apply false
     id("org.jmailen.kotlinter") apply false
